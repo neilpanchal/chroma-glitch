@@ -1,7 +1,7 @@
 // Author: Neil Panchal
 // License: The MIT License
 // Copyright (c) 2015 Neil Panchal, http://neil.engineer
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 // Import color libraries
 import com.chroma.*;
@@ -30,7 +30,7 @@ Luma lumaColors = new Luma(lumaNumber, lumaQuality, lumaMinL, lumaMaxL, lumaMinC
 Chroma[] palette = lumaColors.getClusters();
 
 
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 void setup() {
 
     size(CANVASX, CANVASY, "processing.core.PGraphicsRetina2D");
@@ -45,7 +45,7 @@ void draw() {
 }
 
 
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 void mousePressed() {
 
     background(getRandomColor().get());
@@ -54,7 +54,9 @@ void mousePressed() {
 void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
-        saveFrame("../export/Series " + series + "/" + title + "_" + series + "_" + frame + ".png");
+        saveFrame("../export/Series " +
+                    series + "/" + title + "_" + series + "_" +
+                    frame + ".png");
         frame++;
     }
 }

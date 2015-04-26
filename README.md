@@ -5,7 +5,7 @@ My personal boilerplate project folder for Processing
 // Author: Neil Panchal
 // License: The MIT License
 // Copyright (c) 2015 Neil Panchal, http://neil.engineer
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 // Import color libraries
 import com.chroma.*;
@@ -21,21 +21,20 @@ int frame = 1;
 int CANVASX = 1280;
 int CANVASY = 720;
 
-boolean bgWhite = true;
+boolean bgWhite = false;
 
 // Color palette
-int lumaNumber = 18, lumaQuality = 50;
-int lumaMinL = 20, lumaMaxL = 32;
-int lumaMinC = 20, lumaMaxC = 60;
-int lumaMinH = 200, lumaMaxH = 360;
+int lumaNumber = 18, lumaQuality = 60;
+int lumaMinL = 15, lumaMaxL = 25;
+int lumaMinC = 15, lumaMaxC = 55;
+int lumaMinH = 170, lumaMaxH = 360;
 
 Luma lumaColors = new Luma(lumaNumber, lumaQuality, lumaMinL, lumaMaxL, lumaMinC, lumaMaxC, lumaMinH, lumaMaxH);
 
 Chroma[] palette = lumaColors.getClusters();
 
 
-
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 void setup() {
 
     size(CANVASX, CANVASY, "processing.core.PGraphicsRetina2D");
@@ -50,7 +49,7 @@ void draw() {
 }
 
 
-// --------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 void mousePressed() {
 
     background(getRandomColor().get());
@@ -59,18 +58,17 @@ void mousePressed() {
 void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
-        saveFrame("../export/Series " + series + "/" + title + "_" + series + "_" + frame + ".png");
+        saveFrame("../export/Series " +
+                    series + "/" + title + "_" + series + "_" +
+                    frame + ".png");
         frame++;
     }
 }
 
 // Get a random palette color
 Chroma getRandomColor() {
-    if (bgWhite) {
-        return new Chroma(255);
-    } else {
-        return palette[(int)random(0, palette.length)];
-    }
+    return (bgWhite) ? new Chroma(255) : palette[(int)random(0, palette.length)];
 }
+
 
 ```
