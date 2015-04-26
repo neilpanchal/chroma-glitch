@@ -25,7 +25,10 @@ int lumaMinL = 15, lumaMaxL = 25;
 int lumaMinC = 15, lumaMaxC = 55;
 int lumaMinH = 170, lumaMaxH = 360;
 
-Luma lumaColors = new Luma(lumaNumber, lumaQuality, lumaMinL, lumaMaxL, lumaMinC, lumaMaxC, lumaMinH, lumaMaxH);
+Luma lumaColors = new Luma( lumaNumber, lumaQuality,
+                            lumaMinL, lumaMaxL,
+                            lumaMinC, lumaMaxC,
+                            lumaMinH, lumaMaxH);
 
 Chroma[] palette = lumaColors.getClusters();
 
