@@ -17,18 +17,17 @@ int frame = 1;
 int CANVASX = 1280;
 int CANVASY = 720;
 
-boolean bgWhite = true;
+boolean bgWhite = false;
 
 // Color palette
-int lumaNumber = 18, lumaQuality = 50;
-int lumaMinL = 20, lumaMaxL = 32;
-int lumaMinC = 20, lumaMaxC = 60;
-int lumaMinH = 200, lumaMaxH = 360;
+int lumaNumber = 18, lumaQuality = 60;
+int lumaMinL = 15, lumaMaxL = 25;
+int lumaMinC = 15, lumaMaxC = 55;
+int lumaMinH = 170, lumaMaxH = 360;
 
 Luma lumaColors = new Luma(lumaNumber, lumaQuality, lumaMinL, lumaMaxL, lumaMinC, lumaMaxC, lumaMinH, lumaMaxH);
 
 Chroma[] palette = lumaColors.getClusters();
-
 
 
 // --------------------------------------------------------------------------------------
@@ -62,9 +61,5 @@ void keyReleased() {
 
 // Get a random palette color
 Chroma getRandomColor() {
-    if (bgWhite) {
-        return new Chroma(255);
-    } else {
-        return palette[(int)random(0, palette.length)];
-    }
+    return (bgWhite) ? new Chroma(255) : palette[(int)random(0, palette.length)];
 }
