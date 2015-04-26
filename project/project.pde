@@ -1,5 +1,5 @@
 // Author: Neil Panchal
-// License: http://opensource.org/licenses/MIT
+// License: The MIT License
 // Copyright (c) 2015 Neil Panchal, http://neil.engineer
 // --------------------------------------------------------------------------------------
 
@@ -68,5 +68,3 @@ Chroma getRandomColor() {
         return palette[(int)random(0, palette.length)];
     }
 }
-
-
