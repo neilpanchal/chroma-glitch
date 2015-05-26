@@ -1,5 +1,9 @@
 # Processing-Boilerplate
-My personal boilerplate project folder for Processing
+
+Neil Panchal's personal Processing IDE template. This template utilizes the Chroma & Luma libraries for color generation found here:
+
+https://github.com/neilpanchal/Chroma
+https://github.com/neilpanchal/Luma
 
 ```processing
 // Author: Neil Panchal
