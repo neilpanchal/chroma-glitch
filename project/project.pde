@@ -3,9 +3,10 @@
 // Copyright (c) 2015 Neil Panchal, http://neil.engineer
 // ----------------------------------------------------------------------------
 
-// Import color libraries
+// Import libraries
 import com.chroma.*;
 import com.luma.*;
+import java.util.UUID;
 
 // Project details
 String title = "Boiler Plate";
@@ -59,7 +60,7 @@ void keyReleased() {
     if (key == 's' || key == 'S') {
         saveFrame("../export/Series " +
                     series + "/" + title + "_" + series + "_" +
-                    frame + ".png");
+                    frame + "_" + UUID.randomUUID().toString().substring(0,8) +  ".png");
         frame++;
     }
 }
