@@ -58,7 +58,7 @@ void mousePressed() {
 void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
-        saveFrame("../export/Series " +
+        saveFrame("../Export/Series " +
                     series + "/" + title + "_" + series + "_" +
                     frame + "_" + UUID.randomUUID().toString().substring(0,8) +  ".png");
         frame++;
