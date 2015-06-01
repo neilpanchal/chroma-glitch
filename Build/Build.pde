@@ -47,7 +47,8 @@ void setup() {
 }
 
 void draw() {
-
+    delay(1000);
+    background(getRandomColor().get());
 }
 
 
@@ -61,12 +62,17 @@ void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
         saveFrame("../Export/" + project_name + "/" + project_color + "/" + folder_name + "/"
-                    + file_title + + "_" + frame + "_" + UUID.randomUUID().toString().substring(0,8) +  ".png");
-        frame++;
+                  + file_title + "_" + frame + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".png");
+                    frame++;
     }
 }
 
 // Get a random palette color
 Chroma getRandomColor() {
     return (bgWhite) ? new Chroma(255) : palette[(int)random(0, palette.length)];
+}
+
+void delay(int delay) {
+    int time = millis();
+    while (millis() - time <= delay);
 }
