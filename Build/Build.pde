@@ -9,9 +9,11 @@ import com.luma.*;
 import java.util.UUID;
 
 // Project details
-String title = "Boiler Plate";
+String project_name = "Boiler Plate";
+String project_color = "Color";
+String folder_name = "Series 1";
+String file_title = "boiler_plate";
 
-int series = 1;
 int frame = 1;
 
 // Canvas
@@ -58,9 +60,8 @@ void mousePressed() {
 void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
-        saveFrame("../Export/Series " +
-                    series + "/" + title + "_" + series + "_" +
-                    frame + "_" + UUID.randomUUID().toString().substring(0,8) +  ".png");
+        saveFrame("../Export/" + project_name + "/" + project_color + "/" + folder_name + "/"
+                    + file_title + + "_" + frame + "_" + UUID.randomUUID().toString().substring(0,8) +  ".png");
         frame++;
     }
 }
