@@ -39,7 +39,8 @@ Chroma[] palette = lumaColors.getClusters();
 // ----------------------------------------------------------------------------
 void setup() {
 
-    size(CANVASX, CANVASY, "processing.core.PGraphicsRetina2D");
+    size(1280, 720);
+    pixelDensity(2);
     background(getRandomColor().get());
     frameRate(30);
     smooth();
