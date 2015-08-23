@@ -6,13 +6,15 @@
 // Import libraries
 import com.chroma.*;
 import com.luma.*;
+
 import java.util.UUID;
+import java.util.ArrayList;
 
 // Project details
-String project_name = "Boiler Plate";
+String project_name = "BoilerPlate";
 String project_color = "Color";
 String folder_name = "Series 1";
-String file_title = "boiler_plate";
+String file_title = "boilerplate";
 
 int frame = 1;
 
@@ -22,19 +24,7 @@ int CANVASY = 720;
 
 boolean bgWhite = false;
 
-// Color palette
-int lumaNumber = 18, lumaQuality = 60;
-int lumaMinL = 15, lumaMaxL = 25;
-int lumaMinC = 15, lumaMaxC = 55;
-int lumaMinH = 170, lumaMaxH = 360;
-
-Luma lumaColors = new Luma( lumaNumber, lumaQuality,
-                            lumaMinL, lumaMaxL,
-                            lumaMinC, lumaMaxC,
-                            lumaMinH, lumaMaxH);
-
-Chroma[] palette = lumaColors.getClusters();
-
+Chroma[] palette = generatePalette().getClusters();
 
 // ----------------------------------------------------------------------------
 void setup() {
@@ -55,8 +45,7 @@ void draw() {
 
 // ----------------------------------------------------------------------------
 void mousePressed() {
-
-    background(getRandomColor().get());
+   // Reset function
 }
 
 void keyReleased() {
@@ -66,6 +55,20 @@ void keyReleased() {
                   + file_title + "_" + frame + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".png");
                     frame++;
     }
+}
+// Generate Palette
+Luma generatePalette() {
+    // Color palette
+    int lumaNumber = 8, lumaQuality = 70;
+    int lumaMinL = 15, lumaMaxL = 25;
+    int lumaMinC = 30, lumaMaxC = 35;
+    int lumaMinH = 140, lumaMaxH = 340;
+
+    Luma lumaColors = new Luma( lumaNumber, lumaQuality,
+                                lumaMinL, lumaMaxL,
+                                lumaMinC, lumaMaxC,
+                                lumaMinH, lumaMaxH);
+    return lumaColors;
 }
 
 // Get a random palette color
