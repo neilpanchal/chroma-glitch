@@ -14,8 +14,6 @@ import java.util.ArrayList;
 String project_name = "BoilerPlate";
 String project_color = "Color";
 String folder_name = "Series 1";
-String file_title = "boilerplate";
-
 int frame = 1;
 
 // Canvas
@@ -51,11 +49,12 @@ void mousePressed() {
 void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
-        saveFrame("../Export/" + project_name + "/" + project_color + "/" + folder_name + "/"
-                  + file_title + "_" + frame + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".png");
+        saveFrame("../Export/" + folder_name + "/"
+                  + project_name + "_" + frame + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".png");
                     frame++;
     }
 }
+
 // Generate Palette
 Luma generatePalette() {
     // Color palette
