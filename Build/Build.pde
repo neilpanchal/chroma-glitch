@@ -4,11 +4,13 @@
 // ----------------------------------------------------------------------------
 
 // Import libraries
-import com.chroma.*;
-import com.luma.*;
+
 
 import java.util.UUID;
 import java.util.ArrayList;
+import com.chroma.*;
+import com.luma.*;
+import controlP5.*;
 
 // Project details
 String projectName = "BoilerPlate";
@@ -17,24 +19,36 @@ String folderName = "Series 1";
 int staticFrame = 1;
 int videoFrame = 0;
 
+// Settings
 boolean bgWhite = true;
 boolean exportPDF = false;
 boolean exportVideo = false;
 
+// Staging
+int CANVAS_HEIGHT = 950;
+int CANVAS_WIDTH = 650;
+
 Chroma[] palette = generatePalette().getClusters();
+ControlFrame cf;
 
 // ----------------------------------------------------------------------------
-void setup() {
-
-    size(650, 950, FX2D);
-    pixelDensity(2);
-    background(getRandomColor().get());
-    frameRate(24);
-    smooth();
+void settings() {
+    size(CANVAS_WIDTH, CANVAS_HEIGHT, FX2D);
 
 }
 
-void draw() {
+void setup() {
+    // Set window title
+    surface.setTitle(projectName + " / " + projectColor + " / " + CANVAS_WIDTH + " x " + CANVAS_HEIGHT);
+    cf = new ControlFrame(this, 260, 640, "Controls");
+    background(getRandomColor().get());
+    pixelDensity(2);
+    frameRate(24);
+    noStroke();
+    smooth();
+}
+
+void draw() {;
 
     // Begin Draw
     delay(0);
