@@ -22,7 +22,8 @@ int CANVASX = 1280;
 int CANVASY = 720;
 
 boolean bgWhite = true;
-boolean savePDF = false;
+boolean exportPDF = false;
+boolean exportVideo = false;
 
 Chroma[] palette = generatePalette().getClusters();
 
@@ -42,7 +43,7 @@ void draw() {
     // Begin Draw
     delay(0);
 
-    if(savePDF == true) {
+    if (exportPDF) {
         beginRecord(PDF, "../Export/PDF/" + projectName + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".pdf");
     }
 
@@ -55,16 +56,13 @@ void draw() {
 
 
     // End Draw
-    if(savePDF == true) {
+    if (exportPDF) {
         endRecord();
-        savePDF = false;
+        exportPDF = false;
     }
-
     if (exportVideo && videoFrame < 900) {
         saveVideo(videoFrame++);
-
     } else {
-
         exportVideo = false;
     }
 }
@@ -78,17 +76,21 @@ void keyReleased() {
     // Save a screenshot in PNG format
     if (key == 's' || key == 'S') {
         saveFrame("../Export/" + projectName + "_" + staticFrame + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".png");
-                    staticFrame++;
-    }
-    if (key == 'p' || key == 'P') {
-          savePDF = true;
+        staticFrame++;
     }
 
+    // Export PDF file
+    if (key == 'p' || key == 'P') {
+        exportPDF = true;
+    }
+
+    // Export Video Frames
     if (key == 'v' || key == 'V') {
         exportVideo = !exportVideo;
     }
 
-    if (key =='r' || key == 'R') {
+    // Reset program
+    if (key == 'r' || key == 'R') {
         // Reset Function
 
     }
