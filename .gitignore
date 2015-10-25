@@ -7,6 +7,6 @@ application.windows64
 application.macosx
 *.zip
 Export/
-Build/build-tmp/
+Build/build-tmp/*
 Build/build-tmp/source/Build.java
 Build/build-tmp/Build.class
