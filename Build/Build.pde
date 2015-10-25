@@ -17,10 +17,6 @@ String folderName = "Series 1";
 int staticFrame = 1;
 int videoFrame = 0;
 
-// Canvas
-int CANVASX = 1280;
-int CANVASY = 720;
-
 boolean bgWhite = true;
 boolean exportPDF = false;
 boolean exportVideo = false;
