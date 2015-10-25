@@ -6,4 +6,5 @@ application.windows32
 application.windows64
 application.macosx
 *.zip
-Export
+Export/
+Build/build-tmp/

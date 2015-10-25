@@ -30,7 +30,7 @@ Chroma[] palette = generatePalette().getClusters();
 // ----------------------------------------------------------------------------
 void setup() {
 
-    size(650, 950. FX2D);
+    size(650, 950, FX2D);
     pixelDensity(2);
     background(getRandomColor().get());
     frameRate(24);
@@ -129,7 +129,7 @@ void saveVideo(int i) {
     else if (i < 10000) { istr = "00" + i; }
     else if (i < 100000) { istr = "0" + i; }
     saveFrame("../Export/Video/" + folderName + "/"
-              + file_title + "_" + istr + ".png");
+              + projectName + "_" + istr + ".png");
 }
 // HOW TO ENCODE VIDEO FILES
 
