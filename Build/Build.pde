@@ -4,8 +4,8 @@
 // ----------------------------------------------------------------------------
 
 void settings() {
-    size(CANVAS_WIDTH, CANVAS_HEIGHT, FX2D);
 
+    size(CANVAS_WIDTH, CANVAS_HEIGHT, FX2D);
 }
 
 void setup() {
@@ -22,7 +22,7 @@ void setup() {
 
 void draw() {
 
-    drawStart(); // Call routine draw functions
+    drawBegin(); // Call routine draw functions
 
     // Run the process
 
