@@ -14,9 +14,9 @@ class ControlFrame extends PApplet {
         parent = _parent;
         w = _w;
         h = _h;
-        paddingX = 10;
-        paddingY = 10;
-        spacingY = 10;
+        paddingX = 20;
+        paddingY = 20;
+        spacingY = 20;
         controlHeight = 20;
         controlWidth = _w - (2 * paddingX);
 
@@ -72,7 +72,7 @@ class ControlFrame extends PApplet {
         .setPosition(getX(), getY())
         .setSize(controlWidth - 50, controlHeight);
 
-        cp5.setColorCaptionLabel(color(200,0,0));
+        cp5.setColorCaptionLabel(color(0,0,0));
         cp5.setColorActive(#CCAA00);
         cp5.setColorBackground(color(255));
         cp5.setColorForeground(#CCAA00);
@@ -81,7 +81,7 @@ class ControlFrame extends PApplet {
         return paddingX;
     }
     int getY() {
-        int result = paddingY + (int)(posYCount * controlHeight*3);
+        int result = paddingY + (int)(posYCount * controlHeight*2);
         posYCount++;
         return result ;
     }
@@ -93,6 +93,6 @@ class ControlFrame extends PApplet {
     //     }
     // }
     void draw() {
-        background(#CCCCCC);
+        background(#DDDDDD);
     }
 }
