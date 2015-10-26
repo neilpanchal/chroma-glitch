@@ -87,6 +87,27 @@ void saveVideo(int i) {
               + projectName + "_" + istr + ".png");
 }
 
+void drawStart() {
+    delay(0);
+    background(getRandomColor().get());
+
+    if (exportPDF) {
+        beginRecord(PDF, "../Export/PDF/" + projectName + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".pdf");
+    }
+}
+
+void drawEnd() {
+    // End Draw
+    if (exportPDF) {
+        endRecord();
+        exportPDF = false;
+    }
+    if (exportVideo && videoFrame < 900) {
+        saveVideo(videoFrame++);
+    } else {
+        exportVideo = false;
+    }
+}
 // public void buttonD() {
 //         // Export PDF file
 //     // if (key == 'p' || key == 'P') {

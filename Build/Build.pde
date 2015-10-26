@@ -21,29 +21,12 @@ void setup() {
 }
 
 void draw() {
-    // Begin Draw
-    delay(0);
 
-    if (exportPDF) {
-        beginRecord(PDF, "../Export/PDF/" + projectName + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".pdf");
-    }
+    drawStart(); // Call routine draw functions
 
-    background(getRandomColor().get());
-
-    // Function calls
+    // Run the process
 
 
 
-
-
-    // End Draw
-    if (exportPDF) {
-        endRecord();
-        exportPDF = false;
-    }
-    if (exportVideo && videoFrame < 900) {
-        saveVideo(videoFrame++);
-    } else {
-        exportVideo = false;
-    }
+    drawEnd(); // Call routine end draw functions
 }
