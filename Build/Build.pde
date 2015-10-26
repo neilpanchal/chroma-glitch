@@ -28,7 +28,7 @@ void draw() {
         beginRecord(PDF, "../Export/PDF/" + projectName + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".pdf");
     }
 
-    // background(getRandomColor().get());
+    background(getRandomColor().get());
 
     // Function calls
 

@@ -2,10 +2,10 @@
 
 // import java.util.UUID;
 import java.util.*;
-import java.lang.ProcessBuilder;
 import com.chroma.*;
 import com.luma.*;
 import controlP5.*;
+import processing.pdf.*;
 
 // Project details
 String projectName = "BoilerPlate";
@@ -15,9 +15,9 @@ int staticFrame = 1;
 int videoFrame = 0;
 
 // Settings
-boolean bgWhite = true;
-boolean exportPDF = false;
-boolean exportVideo = false;
+boolean bgWhite;
+boolean exportPDF;
+boolean exportVideo;
 
 // Staging
 int CANVAS_HEIGHT = 950;
@@ -37,10 +37,7 @@ void keyReleased() {
         staticFrame++;
     }
 
-    // Export PDF file
-    if (key == 'p' || key == 'P') {
-        exportPDF = true;
-    }
+
 
     // Export Video Frames
     if (key == 'v' || key == 'V') {
@@ -90,6 +87,14 @@ void saveVideo(int i) {
               + projectName + "_" + istr + ".png");
 }
 
+// public void buttonD() {
+//         // Export PDF file
+//     // if (key == 'p' || key == 'P') {
+//         exportPDF = true;
+//     // }
+
+//     println("PDF Print Successful");
+// }
 
 // HOW TO ENCODE VIDEO FILES
 

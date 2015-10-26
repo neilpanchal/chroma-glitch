@@ -32,29 +32,27 @@ class ControlFrame extends PApplet {
         surface.setTitle(projectName + " / Controller");
         cp5 = new ControlP5(this);
 
-        cp5.addButton("buttonA")
-        .setCaptionLabel("Button A")
-        .plugTo(parent)
+        // Add variables to the .plugTo method as follows.
+        // .plugTo(parent, "Variable Name String")
+        cp5.addToggle("buttonA")
+        .setCaptionLabel("Background")
+        .plugTo(parent, "bgWhite")
+        .setValue(true)
         .setPosition(getX(), getY())
         .setSize(controlWidth, controlHeight);
 
-        cp5.addButton("buttonB")
-        .setCaptionLabel("Button B")
-        .plugTo(parent)
+        cp5.addToggle("buttonC")
+        .setCaptionLabel("Export Video")
+        .plugTo(parent, "exportVideo")
         .setPosition(getX(), getY())
         .setSize(controlWidth, controlHeight);
 
-        cp5.addToggle("toggleA")
-        .setCaptionLabel("Toggle A")
-        .plugTo(parent)
+        cp5.addButton("buttonD")
+        .setCaptionLabel("Export PDF")
+        .plugTo(parent, "exportPDF")
         .setPosition(getX(), getY())
         .setSize(controlWidth, controlHeight);
 
-        cp5.addToggle("toggleB")
-        .setCaptionLabel("Toggle B")
-        .plugTo(parent)
-        .setPosition(getX(), getY())
-        .setSize(controlWidth, controlHeight);
 
         cp5.addSlider("sliderA")
         .setCaptionLabel("Slider A")
