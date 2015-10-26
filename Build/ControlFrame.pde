@@ -1,35 +1,98 @@
 class ControlFrame extends PApplet {
 
-  int w, h;
-  PApplet parent;
-  ControlP5 cp5;
+    int w, h;
+    int posYCount;
+    int controlHeight;
+    int controlWidth;
 
-  public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
-    super();
-    parent = _parent;
-    w=_w;
-    h=_h;
-    PApplet.runSketch(new String[]{this.getClass().getName()}, this);
-  }
+    int paddingX, paddingY, spacingY;
+    PApplet parent;
+    ControlP5 cp5;
 
-  public void settings() {
-    size(w,h);
-  }
+    public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
+        super();
+        parent = _parent;
+        w = _w;
+        h = _h;
+        paddingX = 10;
+        paddingY = 10;
+        spacingY = 10;
+        controlHeight = 20;
+        controlWidth = _w - (2 * paddingX);
 
-  public void setup() {
-    surface.setLocation(100,200);
-    cp5 = new ControlP5(this);
-    // cp5.addButton("Choose file").plugTo(parent,"chooseFile").setPosition(10,10);
-    // cp5.addButton("Save Frame").plugTo(parent, "saveFrame").setPosition(10,40);
-    // cp5.addToggle("auto").plugTo(parent, "auto").setPosition(10,70);
-    // cp5.addToggle("blend").plugTo(parent, "blend").setPosition(10,110);
-    // cp5.addNumberbox("seed").plugTo(parent, "seed").setRange(0, 360).setValue(1).setPosition(100, 10).setSize(100,20);
-    // cp5.addNumberbox("color").plugTo(parent, "c").setRange(0, 125).setValue(1).setPosition(100, 35).setSize(100,20);
-    // cp5.addNumberbox("color2").plugTo(parent, "c2").setRange(0, 1000).setValue(1).setPosition(100, 60).setSize(100,20);
-    // cp5.addSlider("speed").plugTo(parent, "speed").setRange(0, 0.1).setValue(0.01).setPosition(100, 260).setSize(200,20);
-  }
+        PApplet.runSketch(new String[] {this.getClass().getName()}, this);
+    }
 
-  void draw() {
-    background(40);
-  }
+    public void settings() {
+        size(w, h);
+    }
+
+    public void setup() {
+        surface.setLocation(500, 200);
+        surface.setTitle(projectName + " / Controller");
+        cp5 = new ControlP5(this);
+
+        cp5.addButton("buttonA")
+        .setCaptionLabel("Button A")
+        .plugTo(parent)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth, controlHeight);
+
+        cp5.addButton("buttonB")
+        .setCaptionLabel("Button B")
+        .plugTo(parent)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth, controlHeight);
+
+        cp5.addToggle("toggleA")
+        .setCaptionLabel("Toggle A")
+        .plugTo(parent)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth, controlHeight);
+
+        cp5.addToggle("toggleB")
+        .setCaptionLabel("Toggle B")
+        .plugTo(parent)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth, controlHeight);
+
+        cp5.addSlider("sliderA")
+        .setCaptionLabel("Slider A")
+        .plugTo(parent)
+        .setRange(0, 100)
+        .setValue(50)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth -50, controlHeight);
+
+        cp5.addSlider("sliderB")
+        .setCaptionLabel("Slider B")
+        .plugTo(parent)
+        .setRange(0, 100)
+        .setValue(50)
+        .setPosition(getX(), getY())
+        .setSize(controlWidth - 50, controlHeight);
+
+        cp5.setColorCaptionLabel(color(200,0,0));
+        cp5.setColorActive(#CCAA00);
+        cp5.setColorBackground(color(255));
+        cp5.setColorForeground(#CCAA00);
+    }
+    int getX() {
+        return paddingX;
+    }
+    int getY() {
+        int result = paddingY + (int)(posYCount * controlHeight*3);
+        posYCount++;
+        return result ;
+    }
+
+    // void setControllerBackground() {
+    //     List controllerList = cp5.getAll();
+    //     for (int i = 0; i < controllerList.size(); i++) {
+    //         controllerList.get(i).setBackground()
+    //     }
+    // }
+    void draw() {
+        background(#CCCCCC);
+    }
 }
