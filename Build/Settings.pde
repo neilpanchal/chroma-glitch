@@ -1,7 +1,6 @@
 // Import libraries
 
-// import java.util.UUID;
-import java.util.*;
+import java.util.UUID;
 import com.chroma.*;
 import com.luma.*;
 import controlP5.*;
