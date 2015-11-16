@@ -8,7 +8,6 @@ import processing.pdf.*;
 
 // Project details
 String projectName = "BoilerPlate";
-String projectColor = "Mono";
 String folderName = "Series 1";
 int staticFrame = 1;
 int videoFrame = 0;
