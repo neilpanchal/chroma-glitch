@@ -10,7 +10,7 @@ void settings() {
 
 void setup() {
     // Set window title
-    surface.setTitle(projectName + " / " + " / " + CANVAS_WIDTH + " x " + CANVAS_HEIGHT);
+    surface.setTitle(projectName + " / " + CANVAS_WIDTH + " x " + CANVAS_HEIGHT);
 
     cf = new ControlFrame(this, 260, 640, "Controls");
     background(getRandomColor().get());
