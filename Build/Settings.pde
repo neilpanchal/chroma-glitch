@@ -1,5 +1,5 @@
 // Import libraries
-
+import generativedesign.*;
 import java.util.UUID;
 import com.chroma.*;
 import com.luma.*;
@@ -7,8 +7,8 @@ import controlP5.*;
 import processing.pdf.*;
 
 // Project details
-String projectName = "BoilerPlate";
-String folderName = "Series 1";
+String projectName = "chroma_glitch";
+String folderName = "series_1";
 int staticFrame = 1;
 int videoFrame = 0;
 
@@ -18,17 +18,18 @@ boolean exportPDF;
 boolean exportVideo;
 
 // Staging
-int CANVAS_HEIGHT = 950;
-int CANVAS_WIDTH = 650;
+int CANVAS_HEIGHT = 1024;
+int CANVAS_WIDTH = 1024;
 
-Chroma[] palette = generatePalette().getClusters();
+// Chroma[] palette = generatePalette().getClusters();
 ControlFrame cf;
 
 // ----------------------------------------------------------------------------
 
 void drawBegin() {
     delay(0);
-    background(getRandomColor().get());
+    // background(getRandomColor().get());
+
 
     if (exportPDF) {
         beginRecord(PDF, "../Export/PDF/" + projectName + "_" + UUID.randomUUID().toString().substring(0, 8) +  ".pdf");
@@ -72,25 +73,25 @@ void keyReleased() {
     }
 }
 
-// Generate Palette
-Luma generatePalette() {
-    // Color palette
-    int lumaNumber = 8, lumaQuality = 70;
-    int lumaMinL = 15, lumaMaxL = 25;
-    int lumaMinC = 30, lumaMaxC = 35;
-    int lumaMinH = 140, lumaMaxH = 340;
+// // Generate Palette
+// Luma generatePalette() {
+//     // Color palette
+//     int lumaNumber = 8, lumaQuality = 70;
+//     int lumaMinL = 15, lumaMaxL = 25;
+//     int lumaMinC = 30, lumaMaxC = 35;
+//     int lumaMinH = 140, lumaMaxH = 340;
 
-    Luma lumaColors = new Luma( lumaNumber, lumaQuality,
-                                lumaMinL, lumaMaxL,
-                                lumaMinC, lumaMaxC,
-                                lumaMinH, lumaMaxH);
-    return lumaColors;
-}
+//     Luma lumaColors = new Luma( lumaNumber, lumaQuality,
+//                                 lumaMinL, lumaMaxL,
+//                                 lumaMinC, lumaMaxC,
+//                                 lumaMinH, lumaMaxH);
+//     return lumaColors;
+// }
 
 // Get a random palette color
-Chroma getRandomColor() {
-    return (bgWhite) ? new Chroma(255) : palette[(int)random(0, palette.length)];
-}
+// Chroma getRandomColor() {
+//     return (bgWhite) ? new Chroma(255) : palette[(int)random(0, palette.length)];
+// }
 
 void delay(int delay) {
     int time = millis();
